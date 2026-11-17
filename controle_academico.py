@@ -1,4 +1,4 @@
-#import.funcao
+
 
 cursos = []
 disciplinas = []
@@ -6,61 +6,116 @@ professores = []
 alunos = []
 notas = []
 
-
-
+def cadastrar_aluno():
+    
+    matricula = int(input("digite a matrícula: "))
+    nome = input("digite o nome do aluno: ")
+    curso = input("digite o curso: ")
+    
+    aluno = {
+        "matricula": matricula,
+        "nome": nome,
+        "curso": curso
+    }
+    
+    alunos.append(aluno)
+    
+    print("aluno cadastrado com sucesso!")
+    
+def cadastrar_curso():
+    
+    codigo = int(input("cadastre o codigo do curso: "))
+    curso = input("cadastre o curso: ")
+    
+    curso = {
+        "curso": curso,
+        "codigo": codigo
+    }
+    
+    cursos.append(curso)
+    
+    print("curso cadastrado com sucesso!")
+    
+def cadastrar_disciplina():
+    
+    disciplina = input("cadastrar disciplina: ")
+    codigo = int(input("cdastre o codigo da disciplina: "))
+    
+    disciplina = {
+        "disciplina": disciplina,
+        "codigo": codigo
+    }
+    
+    disciplinas.append(disciplina)
+    
+    print("disciplina cadastrada com sucesso")
+    
+def cadastrar_professor():
+    
+    matricula = int(input("cadastrar matricula: "))
+    disciplina = input("cadastrar disciplina: ")
+    nome = input("cadastre seu nome: ")
+    curso = input("cadastre seu curso: ")
+    
+    professor = {
+        "matricula": matricula,
+        "disciplina": disciplina,
+        "nome": nome,
+        "curso": curso
+    }
+    
+    professores.append(professor)
+    
+    print("professor cadastrado(a) com suceso!")
+    
+def cadastrar_notas():
+    
+    aluno = input("qual aluno ira receber a nota: ")
+    disciplina = input("de qual disciplina é essa nota:  ")
+    nota = float(input("cadastre a nota: "))
 
 while True:
-    print("\n===== SISTEMA ACADEMICO=====")
-    print("1 - cadastrar curso")
-    print("2 - cadastrar disciplina")
-    print("3 - cadastrar professor")
-    print("4 - cadastrar aluno")
-    print("5 - cadastrar notas")
-    print("6 - consultar aprovação")
-    print("7 - relatorios")
-    print("8 - emitir certificado")
-    print("9 - ver cadastros")
-    print("0 - sair")
-    
-    opcao = input("escolha uma opção: ")
-    
+
+    print("\n===== SISTEMA ACADÊMICO =====")
+    print("1 - Cadastrar curso")
+    print("2 - Cadastrar disciplina")
+    print("3 - Cadastrar professor")
+    print("4 - Cadastrar aluno")
+    print("5 - Cadastrar notas")
+    print("6 - Consultar aprovação")
+    print("7 - Relatórios")
+    print("8 - Emitir certificado")
+    print("0 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
     if opcao == "1":
-        print("cadastro de curso")
-        
+        cadastrar_curso()
+
     elif opcao == "2":
-        print("cadastro de disciplina")
-    
+        cadastrar_disciplina()
+
     elif opcao == "3":
-        print("cadastro de professor")
-        
+        cadastrar_professor()
+
     elif opcao == "4":
-        print("cadastro de aluno")
-        
+        cadastrar_aluno()
+
     elif opcao == "5":
-        print("cadastrar notas")
-        
+        cadastrar_notas()
+
     elif opcao == "6":
-        print("consultar aprovação")
-        
+        consultar_aprovacao()
+
     elif opcao == "7":
-        print("relatorios")
-        
+        gerar_relatorios()
+
     elif opcao == "8":
-        print("emisão de certificado")
-        
-    elif opcao == "9":
-        print("ver cadastros")
-        if opcao == "9":
-            print(cursos, disciplinas, professores, alunos, notas)
-        else:
-            print("nada consta")
-#acho que esse else ficou inutil pq ele nunca vai aparecer, mas eu não sabia se dava pra deixar o if sem o else ;)
+        emitir_certificado()
+
     elif opcao == "0":
-        print("sair")
+        print("Encerrando o sistema...")
         break
-    
+
     else:
-        print("opção invalida")
-        
-    
-    
+        print("Opção inválida!")
